@@ -1,0 +1,24 @@
+
+h2,h3,h4 {
+    margin-bottom: 1px;
+
+}
+table:nth-of-type(2) {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+table:nth-of-type(2) td, table:nth-of-type(2) th{
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+table:nth-of-type(2) tr:nth-of-type(1) {
+    background-color: #C0C0C0;
+}
+table:nth-of-type(2) tr:nth-of-type(3){
+    background-color: #dddddd;
+}
