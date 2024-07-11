@@ -1,0 +1,6 @@
+
+Begin
+ Input T,L,H
+ A = (T + L + H) / 3
+ Display A
+End

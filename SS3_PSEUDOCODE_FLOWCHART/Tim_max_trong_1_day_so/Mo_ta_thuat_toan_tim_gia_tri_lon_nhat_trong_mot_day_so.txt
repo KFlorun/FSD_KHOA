@@ -1,0 +1,13 @@
+
+Begin
+ Input n, a1, a2, a3... an
+ a1 = max, i=0
+ While (i < n)
+ do 
+   if (a1 > ai+1)
+     max = a1
+   else 
+     max = ai+1
+     i = i + 1
+ Display max 
+End

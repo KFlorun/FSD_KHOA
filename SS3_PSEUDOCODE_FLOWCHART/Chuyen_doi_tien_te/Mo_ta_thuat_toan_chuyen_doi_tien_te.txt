@@ -1,0 +1,6 @@
+
+Begin
+ Input ĐLM
+ VND = ĐLM * 23000
+ Display VND
+End

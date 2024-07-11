@@ -1,0 +1,14 @@
+
+Begin 
+ Input a
+ If (a >= 75)
+   Display " Loai A "
+ else if (a >= 60)
+   Display " Loai B "
+ else if (a >= 45)
+   Display " Loai C "
+ else if (a >= 35)
+   Display " Loai D "
+ else 
+   Display " Loai E "
+End
