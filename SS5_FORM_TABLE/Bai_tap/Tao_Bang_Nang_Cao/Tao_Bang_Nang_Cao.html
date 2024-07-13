@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <title>Chess</title>
     <link rel="stylesheet" type="text/css" href="Tao_Bang_Nang_Cao.css">
+    <style>
+        .OK {
+            body{
+
+            }
+        }
+    </style>
 </head>
 <body>
+<div class="OK" id="Maximize">
+<div class="bca">
 <table>
     <tr>
         <td colspan="9">
             Bàn cờ vua - Netscape Navigator
-
-            <input type="submit" value="_">
-            <input type="submit" value="[]">
-            <input type="submit" value="X">
+            <div class="abc">
+            <input onclick="document.write('Reload above')" type="submit" value="_" style="color: red">
+            <input onclick="document.getElementById('Maximize').innerHTML=" type="submit" value="[]" style="color: red">
+            <input onclick="document.write('Reload above')"  type="submit" value="X" style="color: red">
+            </div>
         </td>
     </tr>
     <tr>
@@ -44,10 +54,11 @@
     </tr>
     <tr>
         <th colspan="9">
-            <input type="submit" value="Bàn cờ vua      x">
-            <select>
+            <div class="container"><input type="submit" value="Bàn cờ vua      x"></div>
+            <div class="option"><select>
                 <option></option>
             </select>
+            </div>
         </th>
     </tr>
     <tr>
@@ -87,5 +98,7 @@
         <th></th><th></th><th></th><th></th>
     </tr>
 </table>
+</div>
+</div>
 </body>
 </html>
