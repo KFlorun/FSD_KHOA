@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" id="callbackk" onclick="tinhtoan()"> Thuc hien phep toan khac </button>
+</body>
+</html>
+<script>
+    // let a = 10;
+    // let b = 18.5;
+    // let c = true;
+    // let d = 'Hà Nội';
+    // document.write('a = '+ a);
+    // document.write('<br>');
+    // document.write('b = '+ b);
+    // document.write('<br>');
+    // document.write('c = '+ c);
+    // document.write('<br>');
+    // document.write('d = '+ d);
+    // let width = 20;
+    // let height = 30;
+    // let area = width * height;
+    // document.write('area = ' + area);
+    function tinhtoan() {
+        let a, b;
+        a = prompt("Nhap a:");
+        b = prompt("Nhap b:");
+        if (a % b == 0) {
+            alert("a chia het cho b");
+        } else {
+            alert("a khong chia het cho b");
+        }
+    }
+    tinhtoan();
+    document.getElementById("callbackk").innerHTML = "Thuc hien phep toan khac" ;
+</script>

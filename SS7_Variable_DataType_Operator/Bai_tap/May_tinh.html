@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<table>
+    <tr>
+        <td colspan="4"><h2>Calculator</h2></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="number" id="input1"></td>
+        <td colspan="2"><input type="number" id="input2"></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="calculator('ADD')" type="button" id="Add">Addition(+)</button>
+        </td>
+        <td>
+            <button onclick="calculator('SUB')" type="button" id="Sub">Subtraction(-)</button>
+        </td>
+        <td>
+            <button onclick="calculator('MUL')" type="button" id="Mul">Multiplication(X)</button>
+        </td>
+        <td>
+            <button onclick="calculator('DIV')" type="button" id="Div">Division(/)</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            Result: <input type="number" id="output">
+        </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
+<script>
+    function calculator(ope){
+        //console.log(ope)
+        let firstNumber = +document.getElementById("input1").value;
+        let secondNumber = +document.getElementById("input2").value;
+        switch (ope) {
+            case "ADD":
+                let sum = firstNumber + secondNumber;
+                document.getElementById("output").value = sum;
+                break
+            case "SUB":
+                let sub = firstNumber - secondNumber;
+                document.getElementById("output").value = sub;
+                break
+            case "MUL":
+                let mul = firstNumber * secondNumber;
+                document.getElementById("output").value = mul;
+                break
+            case "DIV":
+                let div = firstNumber / secondNumber;
+                document.getElementById("output").value = div;
+            default:
+                break
+        }
+    }
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" id="callbackkk" onclick="document.write(tinh_dien_tich())">Tiep tuc</button>
+</body>
+</html>
+<script>
+    function tinh_dien_tich() {
+        let inputWidth, inputHeight;
+        inputWidth = prompt("Enter the width");
+        inputHeight = prompt("Enter the height");
+        let width = parseInt(inputWidth);
+        let height = parseInt(inputHeight);
+        let area = width * height;
+        document.write("Area is " + area);
+    }
+    tinh_dien_tich();
+    document.getElementById("callbackk").innerHTML = "Tiep tuc";
+</script>
