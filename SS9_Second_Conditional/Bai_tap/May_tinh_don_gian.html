@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Calculator</title>
+    <style>
+        table {
+            width: 30%;
+            height: 400px;
+
+        }
+        td {
+            border: 1px solid black
+        }
+        button {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<table>
+    <tr>
+        <td colspan="4">
+            <input type="text" id="display" style="text-align: right">
+        </td>
+    </tr>
+    <tr>
+        <td><button onclick="Display('1')" id="1" >1</button></td>
+        <td><button onclick="Display('2')" id="2" >2</button></td>
+        <td><button onclick="Display('3')" id="3">3</button></td>
+        <td><button onclick="Display('+')" id="+">+</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="Display('4')" id="4" >4</button></td>
+        <td><button onclick="Display('5')" id="5" >5</button></td>
+        <td><button onclick="Display('6')" id="6" >6</button></td>
+        <td><button onclick="Operation('-')" id="-" >-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="Display('7')" id="7" >7</button></td>
+        <td><button onclick="Display('8')" id="8" >8</button></td>
+        <td><button onclick="Display('9')" id="9" >9</button></td>
+        <td><button onclick="Display('x')" id="x" >x</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="Calculate('C')" id="C" >C</button></td>
+        <td><button onclick="Display('0')" id="0" >0</button></td>
+        <td><button onclick="Calculate('=')" id="=" >=</button></td>
+        <td><button onclick="Display('/')" id="/" >/</button></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
+<script>
+    let clickcount = 0;
+    let firstNumber = null;
+    let secondNumber = null;
+    function Display(number) {
+        let display = document.getElementById('display');
+        display.value += number;
+        /*clickcount++;
+        if (clickcount === 1) {
+            firstNumber = display.value;
+        } else if (clickcount === 2 && display.value === +display.value) {
+            secondNumber = display.value;
+        } else if (clickcount === 2 && display.value !== +display.value) {
+            document.getElementById(number).value;
+            document.getElementById("display").value = number;
+        }*/
+    }
+
+</script>

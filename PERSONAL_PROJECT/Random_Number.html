@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        input[type="number"], button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <p>Tối thiểu</p>
+            <input id="MIN" type="number">
+        </td>
+        <td rowspan="2">
+            <input id="output" type="number">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>Tối đa</p>
+            <input id="MAX" type="number">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button onclick="randomm()" type="submit">Create</button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+<script>
+    function randomm() {
+        let min = +document.getElementById("MIN").value;
+        let max = +document.getElementById("MAX").value;
+        if (min == 0) {
+            let number = parseInt(Math.random()*(max+1));
+            document.getElementById("output").value = number;
+        } else {
+            number = parseInt((Math.random()*(max-min+1))+min);
+            document.getElementById("output").value = number;
+        }
+
+    }
+</script>

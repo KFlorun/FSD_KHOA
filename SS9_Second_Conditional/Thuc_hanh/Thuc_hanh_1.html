@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="https://s.net.vn/HCVE" id="image" width="100">
+<p>Click button below to move the image to right</p>
+<button type="button" onclick="moveRight()">moveRight</button>
+<button type="button" onclick="moveLeft()">moveLeft</button>
+<button type="button" onclick="moveUp()">moveUp</button>
+<button type="button" onclick="moveDown()">moveDown</button>
+</body>
+</html>
+<script>
+    let myObj = null;
+    window.onload = init;
+    function init() {
+        myObj = document.getElementById("image");
+        myObj.style.position = 'relative';
+        myObj.style.left = '0px';
+        myObj.style.top = '0px';
+    }
+    function moveRight() {
+        myObj.style.left = parseInt(myObj.style.left) + 10 + 'px';
+    }
+    function moveLeft() {
+        myObj.style.left = parseInt(myObj.style.left) - 10 + 'px';
+    }
+    function moveUp() {
+        myObj.style.top = parseInt(myObj.style.top) - 10 + 'px';
+    }
+    function moveDown() {
+        myObj.style.top = parseInt(myObj.style.top) + 10 + 'px';
+    }
+</script>
