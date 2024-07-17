@@ -18,10 +18,10 @@
 <table>
     <tr>
         <td>
-            <input type="number" id="input" placeholder="Nhập số tháng">
+            <input type="number" id="input" placeholder="Enter the number of month">
         </td>
         <td>
-            <button type="button" onclick="Calculate()">Tính số ngày</button>
+            <button type="button" onclick="Calculate()">Calculate</button>
         </td>
     </tr>
     <tr>
@@ -44,16 +44,16 @@
             case 8:
             case 10:
             case 12:
-                document.getElementById("output").value = "Tháng "+ number + " có 31 ngày";
+                document.getElementById("output").value = "Month "+ number + " has 31 days";
                 break;
             case 2:
-                document.getElementById("output").value = "Tháng 2 có 28 hoặc 29 ngày";
+                document.getElementById("output").value = "Month 2 has 28 or 29 days";
                 break;
             case 4:
             case 6:
             case 9:
             case 11:
-                document.getElementById("output").value = "Tháng "+ number + " có 31 ngày";
+                document.getElementById("output").value = "Month "+ number + " has 30 days";
                 break;
         }
     }

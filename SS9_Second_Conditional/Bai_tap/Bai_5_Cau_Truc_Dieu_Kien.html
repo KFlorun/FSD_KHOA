@@ -6,18 +6,18 @@
 </head>
 <body>
 <script>
-    let a = +prompt("Nhap diem kiem tra: ");
-    let b = +prompt("Nhap diem giua ky: ");
-    let c = +prompt("Nhap diem cuoi ky: ");
+    let a = +prompt("Enter test mark: ");
+    let b = +prompt("Enter midterm grade: ");
+    let c = +prompt("Enter final grade : ");
     let TB = (a+b*2+c*3)/6;
     if (TB >= 8) {
-        alert("Hoc luc: Gioi");
+        alert("Academic performance: Excellent");
     } else if (TB >= 6.5) {
-        alert("Hoc luc: Kha");
+        alert("Academic performance: Good");
     } else if (TB >= 5) {
-        alert("Hoc luc: Trung Binh");
+        alert("Hoc luc: Average");
     } else {
-        alert("Hoc luc: Yeu");
+        alert("Hoc luc: Weak");
     }
 </script>
 </body>
