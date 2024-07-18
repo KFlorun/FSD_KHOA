@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let a = +prompt("Enter the income monthly:    million VND");
+    while(a < 0) {
+        a = +prompt("Enter again: ");
+    }
+    if (a > 80) {
+        let b = a * 0.35;
+        alert("Tax amount is " + b + " million VND");
+    } else if (a > 32) {
+        b = a * 0.25;
+        alert("Tax amount is " + b + " million VND");
+    } else if (a > 10) {
+        b = a * 0.15;
+        alert("Tax amount is " + b + " million VND");
+    } else {
+        b = a * 0.05;
+        alert("Tax amount is " + b + " million VND");
+    }
+</script>
+</body>
+</html>

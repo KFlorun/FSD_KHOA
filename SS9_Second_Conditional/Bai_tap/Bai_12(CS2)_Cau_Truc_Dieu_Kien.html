@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let P = +prompt("Enter initial amount:   VND");
+    let t = +prompt("Enter the number of months: ");
+    let r = 0.01;
+
+    while(P < 0 || t < 0) {
+        P = +prompt("Enter again:   VND");
+        t = +prompt("Enter the number of months: ");
+    }
+    let A = P * ((1 + r) ** t);
+    alert("The interest is " + A);
+</script>
+</body>
+</html>

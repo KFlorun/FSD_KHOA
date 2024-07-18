@@ -6,9 +6,9 @@
 </head>
 <body>
 <script>
-    let a = prompt("Enter first number");
-    let b = prompt("Enter second number");
-    let c = prompt("Enter third number");
+    let a = +prompt("Enter first number");
+    let b = +prompt("Enter second number");
+    let c = +prompt("Enter third number");
     if (a > b && a > c) {
         alert("Max value is " + a);
     } else if (b > c) {
@@ -16,7 +16,6 @@
     } else {
         alert("Max value is " + c);
     }
-    // làm thêm button max min
 </script>
 </body>
 </html>

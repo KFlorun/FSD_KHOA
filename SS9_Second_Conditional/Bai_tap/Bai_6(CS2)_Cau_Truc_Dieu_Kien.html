@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solve the linear equation</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Enter a: ");
+    let b = +prompt("Enter b: ");
+    if (a === 0) {
+        if (b === 0) {
+            alert("The equation has infinitely many solutions");
+        } else {
+            alert("The equation has no solution");
+        }
+    } else {
+        let x = -b / a;
+        alert("The equation has x = " + x);
+    }
+</script>
+</body>
+</html>

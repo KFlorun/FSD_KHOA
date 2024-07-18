@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Enter the amount of electricity used:    kWH");
+    while(a < 0) {
+        a = +prompt("Enter again: ");
+    }
+    if (a > 301) {
+        let b = a * 3050;
+        alert("The price is " + b + "VND");
+    } else if (a > 101) {
+        b = a * 2167;
+        alert("The price is " + b + "VND");
+    } else {
+        b = a * 1806;
+        alert("The price is " + b + "VND");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check 3 real numbers</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Enter a: ");
+    let b = +prompt("Enter b: ");
+    let c = +prompt("Enter c: ")
+    while(a < 0 || b < 0 || c < 0) {
+        a = +prompt("Enter a again: ");
+        b = +prompt("Enter b again: ");
+        c = +prompt("Enter c again: ")
+    }
+    if (a + b > c && b + c > a && a + c > b) {
+        alert("a, b, c are 3 sides of a triangle");
+    } else {
+        alert("a, b, c are not 3 sides of a triangle");
+    }
+</script>
+</body>
+</html>
