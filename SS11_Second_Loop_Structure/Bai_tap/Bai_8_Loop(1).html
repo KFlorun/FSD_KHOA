@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin-top: 350px;
+        }
+        button {
+            width: 150px;
+            height: 150px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            border: 2px solid black;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+<button onclick="press()" id="button">PLAY</button>
+</body>
+</html>
+<script>
+    let number;
+    let print;
+    function press() {
+        debugger;
+        let a = prompt("What range do you want to guess?*Enter according to the syntax:\nMin - Max");
+        const b = a.split('-');
+        const trimmedValues = b.map(b => b.trim());
+        const [min, max] = trimmedValues;
+        let Min = +min, Max = +max;
+        if (Min === 0) {
+            number = parseInt(Math.random() * (Max + 1));
+        } else {
+            number = parseInt((Math.random() * (Max - Min + 1)) + Min);
+        }
+            print = +prompt("Enter the value you guess: ");
+        for (let i = 1; i <= 3; i++) {
+            if (print === number) {
+                alert("CONGRATULATE! ** EXCELLENT");
+                return;
+            } else if (print > number) {
+                print = +prompt("Your guess is bigger - Enter again: ");
+            } else {
+                print = +prompt("Your guess is smaller - Enter again: ");
+            }
+        } alert("YOU LOST ** PLAY AGAIN");
+    }
+</script>
