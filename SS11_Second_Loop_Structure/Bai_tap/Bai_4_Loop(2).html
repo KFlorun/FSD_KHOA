@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // METHOD 1
+    /*for (let i = 1; i <= 7; i++) {
+        for (let j = 1; j <= 21; j++) {
+            if (i === 1 || i === 7) {
+                document.write("*");
+            } else {
+                if (j === 1 || j === 21) {
+                    document.write("*");
+                } else {
+                    document.write("&nbsp;&nbsp");
+                }
+            }
+        }
+        document.write("<br>");
+    }*/
+    // METHOD 2
+    /*for (let i = 0; i < 7; i++) {
+        for (let j = 0; j < 21 ; j++) {
+            if ((i === 0 && j < 21) || (i === 6 && j < 21) || (i < 7 && j === 20) || (i < 7 && j === 0)) {
+                document.write("*");
+            } else {
+                document.write("&nbsp;&nbsp;");
+            }
+        }
+        document.write("<br>");
+    }*/
+</script>
+</body>
+</html>
