@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Enter the number of elements in the array: ");
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt("Enter number: ");
+        while (!Number.isInteger(arr[i])) {
+            arr[i] = +prompt("Enter number: ");
+        }
+    }
+    for (let i = 0; i < n; i++) {
+        if (i < n) {
+            let tmp = arr[i];
+            arr[i] = arr[n];
+            arr[n] = tmp;
+            n--;
+        }
+    }
+    arrResult = arr.toString();
+    alert("The reversed array: " + arrResult.substring(1));
+</script>
+</body>
+</html>

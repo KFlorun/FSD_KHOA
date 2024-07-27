@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrA = [];
+    let arrB = [];
+    let arrC = [];
+    for (let i = 0; i < 10; i++) {
+        arrA[i] = +prompt("Enter number (in arrA): ");
+        while (!Number.isInteger(arrA[i])) {
+            arrA[i] = +prompt("Enter number: ");
+        }
+    }
+    for (let i = 0; i < 10; i++) {
+        arrB[i] = +prompt("Enter number (in arrB): ");
+        while (!Number.isInteger(arrB[i])) {
+            arrB[i] = +prompt("Enter number: ");
+        }
+    }
+    arrC.push(arrA.concat(arrB));
+    alert(arrC);
+</script>
+</body>
+</html>

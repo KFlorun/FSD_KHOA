@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let result = [];
+    let count = 0;
+    for (let i = 0; i < 10; i++) {
+        arr[i] = +prompt("Enter number: ");
+        while (!Number.isInteger(arr[i])) {
+            arr[i] = +prompt("Enter again: ");
+        }
+    }
+    for (let i = 0; i < 10; i++) {
+        if (arr[i] >= 10) {
+            result.push(arr[i]);
+            count++;
+        }
+    }
+    if (count > 1) {
+        alert(count + " numbers greater than or equal to 10: " + result.join(','));
+    } else if (count === 1) {
+        alert(result + " greater than or equal to 10");
+    } else {
+        alert("There is no number greater than or equal to 10");
+    }
+</script>
+</body>
+</html>

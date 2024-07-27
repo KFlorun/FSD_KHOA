@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt();
+    trimmedStr = string.trim();
+    let count = 0;
+    for (let char of trimmedStr) {
+        if (char === ' ') {
+            count++
+        }
+    }
+    alert("The number of words in the str: " + (count + 1))
+</script></body>
+</html>

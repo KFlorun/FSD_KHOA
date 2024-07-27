@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr[i] = +prompt("Enter number: ");
+        while (!Number.isInteger(arr[i])) {
+            arr[i] = +prompt("Enter number: ");
+        }
+    }
+    let V = +prompt("Enter a integer: ");
+    function check() {
+        for (let i = 0; i < 10; i++) {
+            if (arr[i] === V) {
+                return alert("V is in the array");
+            }
+        }
+        alert("V is not in the array");
+    }
+    check();
+</script>
+</body>
+</html>

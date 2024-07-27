@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = prompt("Enter: ");
+    let str = array.toString();
+    let result = [array[0]];
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '-') {
+            result.splice(i,1);
+            result.push('_',str[i+1]);
+        } else {
+            result.push(str[i+1]);
+        }
+    }
+    alert(result);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr[i] = +prompt("Enter number: ");
+        while (!Number.isInteger(arr[i])) {
+            arr[i] = +prompt("Enter number: ");
+        }
+    }
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (arr[j] < arr[j+1]) {
+                let tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+    alert(arr);
+</script>
+</body>
+</html>

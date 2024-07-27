@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+
+</head>
+<body>
+<span>Enter word</span>
+<input type="text" id="input">
+<button onclick="submit()">Translate</button>
+<p id="output"></p>
+</body>
+</html>
+<script>
+    let dic = {
+        "apple": "Quả táo", "banana": "Trái chuối"
+    }
+    let arrEng = Object.keys(dic);
+    function submit() {
+        const input = document.getElementById("input");
+        for (let i = 0; i < arrEng.length; i++) {
+            if (input.value === arrEng[i]) {
+                document.getElementById("output").innerHTML = dic[arrEng[i]];
+                input.value = "";
+            }
+        }
+    }
+</script>

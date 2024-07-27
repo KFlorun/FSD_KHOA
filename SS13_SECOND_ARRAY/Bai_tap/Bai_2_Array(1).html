@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let index = 0;
+    for(let i = 0; i < 10; i++) {
+        arr[i] = +prompt("Enter number: ");
+        while (!Number.isInteger(arr[i])) {
+            arr[i] = +prompt("Enter again: ");
+        }
+    }
+    let max = arr[0];
+    for (let i = 1; i < 10; i++) {
+        if (arr[i] >= max) {
+            max = arr[i];
+            index = i;
+        }
+    }
+    alert("The max element is " + max + " at index " + index);
+</script>
+</body>
+</html>

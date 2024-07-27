@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let count = 0;
+    let result = [];
+    let n = +prompt("Enter the number of elements in the array: ");
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt("Enter number: ");
+    }
+    for (let i = 0; i < n; i++) {
+        if (Number.isInteger(arr[i]) && arr[i] < 0 ) {
+            result.push(arr[i]);
+            count++;
+        }
+    }
+    if (count > 1) {
+        alert(count + " negative integer: " + result.join(','));
+    } else if (count === 1) {
+        alert(result + " that is negative integer");
+    } else {
+        alert("There is no negative integer");
+    }
+</script>
+</body>
+</html>

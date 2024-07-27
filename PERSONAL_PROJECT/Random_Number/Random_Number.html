@@ -48,7 +48,7 @@
     function randomm() {
         let min = +document.getElementById("MIN").value;
         let max = +document.getElementById("MAX").value;
-        if (min == 0) {
+        if (min === 0) {
             let number = parseInt(Math.random()*(max+1));
             document.getElementById("output").value = number;
         } else {

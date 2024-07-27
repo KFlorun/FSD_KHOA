@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let n = prompt("Enter the number of elements: ");
+    for (let i = 0; i < n; i++) {
+        arr[i] = prompt("Enter characters: ");
+    }
+    for (let i = 0; i < n ; i++) {
+        if (i < n - 1) {
+            let tmp = arr[i];
+            arr[i] = arr[n-1];
+            arr[n-1] = tmp;
+            n--;
+        }
+    }
+    alert(arr.join(''));
+</script>
+</body>
+</html>

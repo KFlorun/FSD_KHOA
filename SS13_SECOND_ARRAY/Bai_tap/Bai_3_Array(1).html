@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Enter the number of elements in the array: ");
+    let arr = [];
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt("Enter number: ");
+        while (!Number.isInteger(arr[i])) {
+            arr[i] = +prompt("Enter number: ");
+        }
+    }
+    let max = arr[0];
+    for (let i = 1; i < n; i++) {
+        if (arr[i] >= max) {
+            max = arr[i];
+        }
+    }
+    for (let i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    alert("The max element: " + max + "\n" + "Average: " + sum/n);
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bai_1
+<script>
+    let array = ["Red", "Green", "White", "Black"];
+    array.toString();
+    array.join(",");
+    document.write(array);
+</script>-->
+<!--Bai_2
+<script>
+    let array = prompt();
+    let str = array.toString();
+    let result = [array[0]];
+    for(let i = 0; i < str.length; i++) {
+        if (str[i] % 2 === 0 && str[i+1] % 2 === 0) {
+            result.push('-',str[i+1]);
+        } else {
+            result.push(str[i+1]);
+        }
+    }
+    document.write(result.join(''));
+</script>-->
+<!--Bai_3
+<script>
+    let str = prompt();
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+    for (let x = 0; x < str.length; x++) {
+        if (UPPER.indexOf(str[x]) !== -1) {
+            result.push(str[x].toLowerCase());
+        }
+        else if (LOWER.indexOf(str[x]) !== -1) {
+            result.push(str[x].toUpperCase());
+        }
+        else {
+            result.push(str[x]);
+        }
+    }
+    document.write(result.join(''));
+</script>-->
+</body>
+</html>

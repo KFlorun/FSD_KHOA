@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="position: absolute; left:650px; top:265px;">Do you love me?</h1>
+<button id="yes" onclick="yesClick()" style="position: absolute;left:650px;top: 325px;">YES</button>
+<button id="no"  onmouseover="noClick()" style="position: absolute;left: 725px;top: 325px;">NO</button>
+</body>
+</html>
+<script>
+    function yesClick() {
+        alert("Yah I know! I love you too");
+    }
+    let count = 0;
+    function noClick() {
+        count++;
+        if (count % 4 === 0) {
+            alert("Chọn YES đi trời ơi :)))");
+        } else if (count >= 1) {
+            let x = Math.round(Math.random()*window.innerWidth);
+            let y = Math.round(Math.random()*window.innerHeight);
+            document.getElementById("no").style.left = x + 'px';
+            document.getElementById("no").style.top = y + 'px';
+            let yesButton = document.getElementById("yes");
+            let currentWidth = yesButton.offsetWidth;
+            let currentHeight = yesButton.offsetHeight;
+            let currentFontSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            let currentPaddingTop = parseInt(window.getComputedStyle(yesButton).paddingTop);
+            let currentPaddingRight = parseInt(window.getComputedStyle(yesButton).paddingRight);
+            yesButton.style.width = (currentWidth + 10) + 'px';
+            yesButton.style.height = (currentHeight + 10) + 'px';
+            yesButton.style.fontSize = (currentFontSize + 2) + 'px';
+            yesButton.style.padding = (currentPaddingTop + 2) + 'px' + (currentPaddingRight + 5) + 'px';
+        }
+    }
+</script>
