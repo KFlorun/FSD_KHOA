@@ -6,18 +6,17 @@
 </head>
 <body>
 <script>
-    let array = prompt("Enter: ");
-    let str = array.toString();
-    let result = [array[0]];
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === '-') {
+    let arr = prompt("Enter: ");
+    let result = [arr[0]];
+    for (let i = 0; i < arr.length-1; i++) {
+        if (arr[i] === '-') {
             result.splice(i,1);
-            result.push('_',str[i+1]);
+            result.push('_',arr[i+1]);
         } else {
-            result.push(str[i+1]);
+            result.push(arr[i+1]);
         }
     }
-    alert(result);
+    alert(result.join(''));
 
 </script>
 </body>
