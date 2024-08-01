@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getMin(arr) {
+        let min = arr[0];
+        for (const num of arr) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        return min;
+    }
+
+    let arr = [];
+    arr += prompt("Enter 3 integer: ");
+    alert(getMin(arr.split(',')));
+</script>
+</body>
+</html>

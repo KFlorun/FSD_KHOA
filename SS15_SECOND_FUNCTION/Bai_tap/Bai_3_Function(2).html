@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function calFactorial(n) {
+        let gt = 1, i = 1;
+        while (i <= n) {
+            gt *= i;
+            i++;
+        }
+        return gt;
+    }
+
+    let n = +prompt("Enter positive integer: ");
+    alert(n + "! = " + calFactorial(n));
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const pi = 3.14;
+    function calAreaPerimeter(r) {
+        let area = pi * r * r  ;
+        let perimeter = 2 * pi * r;
+        return {area, perimeter};
+    }
+    let r = +prompt("Enter radius: ")
+    let c = calAreaPerimeter(r);
+    alert("The area: " + c.area + "\n"
+    + "The perimeter: " + c.perimeter );
+</script>
+</body>
+</html>

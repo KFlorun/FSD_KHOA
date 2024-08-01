@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+    let index = 0
+    function getArray(char) {
+        for (let i = 0; i < arr1.length; i++) {
+            if (char === arr1[i]) {
+                index = i;
+                return alert(arr2[index]);
+            } else {
+                return alert("Star not found")
+            }
+        }
+    }
+    let char = prompt("Enter star: ");
+    getArray(char);
+</script>
+</body>
+</html>

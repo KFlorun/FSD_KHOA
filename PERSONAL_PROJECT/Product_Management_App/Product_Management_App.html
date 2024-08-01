@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h2>Add New Product</h2>
+    <input type="text" id="inputProduct" placeholder="New Product">
+    <button onclick="addProduct()">Add</button>
+    <h2>Display All Product</h2>
+    <div>
+        <span>Product Name</span>
+        <span>
+            Product: <span id="totalProduct">0</span>
+        </span>
+    </div>
+    <div>
+        <span id="outputProduct"></span>
+        <!--<button onclick="editProduct()">Edit</button>
+        <button onclick="deleteProduct()">Delete</button>-->
+    </div>
+</body>
+</html>
+<script>
+    let count = 0;
+    let outputProduct;
+    let i = 0;
+    let data = '';
+    data += '<button onClick="editProduct()">Edit</button><button onClick="deleteProduct()">Delete</button>'
+
+    function addProduct() {
+        let inputProduct = document.getElementById("inputProduct");
+        outputProduct = document.getElementById("outputProduct");
+        if (outputProduct.innerHTML) {
+            outputProduct.innerHTML += inputProduct.value + data + "<br>";
+        } else {
+            outputProduct.innerHTML = inputProduct.value + data + "<br>";
+        }
+        i++;
+        document.getElementById("inputProduct").value = "";
+        document.getElementById("totalProduct").innerHTML = ++count;
+
+    }
+    function editProduct() {
+        document.getElementById("outputProduct").innerHTML = prompt("Edit product name: ");
+    }
+    function deleteProduct() {
+        let del = confirm("Are you sure you want to delete product");
+        if(del) {
+            document.getElementById("outputProduct").innerHTML = "";
+            document.getElementById("totalProduct").innerHTML = '0'
+        }
+    }
+</script>

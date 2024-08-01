@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function reversedArray(arr) {
+        let i = 0;
+        let n = arr.length - 1;
+        while (i < n) {
+            let tmp = arr[i];
+            arr[i] = arr[n];
+            arr[n] = tmp;
+            n--;
+            i++;
+        }
+        return arr;
+    }
+    let arr = prompt("Enter a series of number: ");
+    let result = arr.split('');
+    alert(reversedArray(result));
+</script>
+</body>
+</html>

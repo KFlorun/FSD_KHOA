@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload = getArguments()>
+<script>
+    function sum(a, b) {
+        return a + b;
+    }
+
+    function getArguments(num1, num2) {
+        if (num1 > num2) {
+            alert("a > b");
+        } else {
+            alert(sum(num1, num2));
+        }
+    }
+    let num1 = +prompt("Enter first number: ");
+    let num2 = +prompt("Enter first number: ");
+    getArguments(num1, num2);
+</script>
+</body>
+</html>
