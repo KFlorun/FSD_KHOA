@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Mobile () {
+        this.battery = 100;
+        this.textComposing = "";
+        this.textReceive = [];
+        this.textSent = [];
+        this.isOn = false;
+        this.checkOnOff = function () {
+            return this.isOn;
+        };
+        this.turn_On_Off = function () {
+            this.isOn = !this.isOn;
+        }
+        this.charge = function () {
+            if (this.isOn) {
+                return this.battery;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.composeMessage = function (content) {
+            if (this.isOn) {
+                this.textComposing = content;
+                this.battery --;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.receiveMessages = function (message) {
+            if (this.isOn) {
+                this.textReceive.push(message);
+                this.battery--;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");            }
+        };
+        this.sentMessage = function (mobile, content) {
+            if (this.isOn) {
+                if (this.textComposing) {
+                    mobile.receiveMessages(content);
+                    this.textSent.push(content);
+                    this.textComposing = "";
+                    this.battery--;
+                }
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        }
+        this.seeReceivedMessage = function () {
+            if (this.isOn) {
+                this.battery --;
+                return this.textReceive;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        }
+        this.seeSentMessage = function () {
+            if (this.isOn) {
+                this.battery--;
+                return this.textSent;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        }
+    }
+    let nokia = new Mobile();
+    let iphone = new Mobile();
+    nokia.turn_On_Off();
+    iphone.turn_On_Off();
+    nokia.composeMessage("Hello, this is a message form Nokia");
+    nokia.sentMessage(iphone, nokia.textComposing);
+    alert(iphone.textReceive);
+
+</script>
+</body>
+</html>

@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <canvas id="myCanvas" width="1370" height="770px"></canvas>
 </body>
 </html>
+<script>
+    let circle = function (x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    function createCircle() {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let xCircle = Math.random() * window.innerWidth;
+        let yCircle = Math.random() * window.innerHeight;
+        let radiusCircle = Math.random() * 200;
+        let color = getRandomColor();
+        let myCircle = new circle(xCircle, yCircle, radiusCircle);
+        ctx.beginPath();
+        ctx.arc(myCircle.x, myCircle.y, myCircle.radius,0 , 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return "rgb(" + red + "," + green + "," + blue +")";
+    }
+    let i = 0;
+    while (i < 100) {
+        createCircle();
+        i++;
+    }
+
+</script>

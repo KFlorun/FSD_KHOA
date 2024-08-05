@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Phone Simulation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .phone {
+            width: 300px;
+            height: 600px;
+            border: 2px solid #000;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .battery {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .messages {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+<div class="phone" id="nokia-phone">
+    <div class="screen">
+        <h2>Nokia</h2>
+        <div class="battery">Battery: <span id="nokia-battery">100</span>%</div>
+        <div class="messages">
+            <textarea id="nokia-compose" placeholder="Compose a message"></textarea>
+            <button onclick="sendMessage('nokia')">Send to iPhone</button>
+            <button onclick="seeReceived('nokia')">See Received Messages</button>
+            <button onclick="seeSent('nokia')">See Sent Messages</button>
+        </div>
+        <div class="toggle">
+            <button onclick="togglePhone('nokia')">Turn On/Off</button>
+        </div>
+    </div>
+</div>
+
+<div class="phone" id="iphone-phone">
+    <div class="screen">
+        <h2>iPhone</h2>
+        <div class="battery">Battery: <span id="iphone-battery">100</span>%</div>
+        <div class="messages">
+            <textarea id="iphone-compose" placeholder="Compose a message"></textarea>
+            <button onclick="sendMessage('iphone')">Send to Nokia</button>
+            <button onclick="seeReceived('iphone')">See Received Messages</button>
+            <button onclick="seeSent('iphone')">See Sent Messages</button>
+        </div>
+        <div class="toggle">
+            <button onclick="togglePhone('iphone')">Turn On/Off</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Mobile() {
+        this.battery = 100;
+        this.textComposing = "";
+        this.textReceive = [];
+        this.textSent = [];
+        this.isOn = false;
+        this.checkOnOff = function() {
+            return this.isOn;
+        };
+        this.turn_On_Off = function() {
+            this.isOn = !this.isOn;
+            if (!this.isOn) {
+                this.battery = 100;
+                updateBatteryDisplay();
+            }
+        };
+        this.charge = function() {
+            if (this.isOn) {
+                return this.battery;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.composeMessage = function(content) {
+            if (this.isOn) {
+                this.textComposing = content;
+                this.battery--;
+                updateBatteryDisplay();
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.receiveMessages = function(message) {
+            if (this.isOn) {
+                this.textReceive.push(message);
+                this.battery--;
+                updateBatteryDisplay();
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.sentMessage = function(mobile, content) {
+            if (this.isOn) {
+                if (this.textComposing) {
+                    mobile.receiveMessages(content);
+                    this.textSent.push(content);
+                    this.textComposing = "";
+                    this.battery--;
+                    updateBatteryDisplay();
+                }
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.seeReceivedMessage = function() {
+            if (this.isOn) {
+                this.battery--;
+                updateBatteryDisplay();
+                return this.textReceive;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.seeSentMessage = function() {
+            if (this.isOn) {
+                this.battery--;
+                updateBatteryDisplay();
+                return this.textSent;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+    }
+
+    let nokia = new Mobile();
+    let iphone = new Mobile();
+
+    function togglePhone(phoneType) {
+        if (phoneType === 'nokia') {
+            nokia.turn_On_Off();
+            alert("Nokia phone is " + (nokia.isOn ? "on" : "off"));
+        } else if (phoneType === 'iphone') {
+            iphone.turn_On_Off();
+            alert("iPhone phone is " + (iphone.isOn ? "on" : "off"));
+        }
+    }
+
+    function sendMessage(phoneType) {
+        if (phoneType === 'nokia') {
+            let content = document.getElementById("nokia-compose").value;
+            nokia.composeMessage(content);
+            nokia.sentMessage(iphone, content);
+            document.getElementById("nokia-compose").value = "";
+        } else if (phoneType === 'iphone') {
+            let content = document.getElementById("iphone-compose").value;
+            iphone.composeMessage(content);
+            iphone.sentMessage(nokia, content);
+            document.getElementById("iphone-compose").value = "";
+        }
+    }
+
+    function seeReceived(phoneType) {
+        if (phoneType === 'nokia') {
+            let messages = nokia.seeReceivedMessage();
+            alert("Nokia received messages: " + messages.join(", "));
+        } else if (phoneType === 'iphone') {
+            let messages = iphone.seeReceivedMessage();
+            alert("iPhone received messages: " + messages.join(", "));
+        }
+    }
+
+    function seeSent(phoneType) {
+        if (phoneType === 'nokia') {
+            let messages = nokia.seeSentMessage();
+            alert("Nokia sent messages: " + messages.join(", "));
+        } else if (phoneType === 'iphone') {
+            let messages = iphone.seeSentMessage();
+            alert("iPhone sent messages: " + messages.join(", "));
+        }
+    }
+
+    function updateBatteryDisplay() {
+        document.getElementById("nokia-battery").innerText = nokia.battery;
+        document.getElementById("iphone-battery").innerText = iphone.battery;
+    }
+
+</script>
+</body>
+</html>

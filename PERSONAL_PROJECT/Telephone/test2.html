@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .phone {
+            width: 300px;
+            height: 600px;
+            border: 2px solid #000;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .battery {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .messages {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>-->
+</head>
+<body>
+<div class="phone">
+    <div class="screen">
+        <div class="battery">Battery: <span id="battery">100</span>%</div>
+        <div class="messages">
+            <textarea id="composeArea" placeholder="Compose a message"></textarea>
+            <button onclick="sendMessage()">Send Message</button>
+            <button onclick="seeReceived()">See Received Messages</button>
+            <button onclick="seeSent()">See Sent Messages</button>
+            <button onclick="chargeBattery()">Charge Battery</button>
+        </div>
+        <div class="toggle">
+            <button onclick="togglePhone()">Turn On/Off</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
+<script>
+    function Mobile() {
+        this.battery = 100;
+        this.textComposing = "";
+        this.textReceive = [];
+        this.textSent = [];
+        this.isOn = false;
+        this.checkOnOff = function() {
+            return this.isOn;
+        };
+        this.turn_On_Off = function() {
+            this.isOn = !this.isOn;
+            /*if (!this.isOn) {
+                document.getElementById("battery").innerText = 100;
+                this.battery = 100;
+            }*/
+        };
+        this.charge = function() {
+            if (this.isOn) {
+                return this.battery;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.composeMessage = function(content) {
+            if (this.isOn) {
+                this.textComposing = content;
+                this.battery--;
+                updateBattery();
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.receiveMessages = function(message) {
+            if (this.isOn) {
+                this.textReceive.push(message);
+                this.battery--;
+                updateBattery();
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.sentMessage = function(mobile, content) {
+            if (this.isOn) {
+                if (this.textComposing) {
+                    mobile.receiveMessages(content);
+                    this.textSent.push(content);
+                    this.textComposing = "";
+                    this.battery--;
+                    updateBattery();
+                }
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.seeReceivedMessage = function() {
+            if (this.isOn) {
+                this.battery--;
+                updateBattery();
+                return this.textReceive;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.seeSentMessage = function() {
+            if (this.isOn) {
+                this.battery--;
+                updateBattery();
+                return this.textSent;
+            } else {
+                this.isOn = confirm("Turn on the phone to use functions");
+            }
+        };
+        this.changeBattery = function () {
+            this.battery = 100
+            updateBattery();
+        }
+    }
+    function updateBattery() {
+        document.getElementById("battery").innerText = nokia.battery;
+    }
+
+    let nokia = new Mobile();
+    let iphone = new Mobile();
+    function chargeBattery() {
+        nokia.changeBattery()
+    }
+
+    function togglePhone() {
+        nokia.turn_On_Off();
+        if (nokia.isOn) {
+            alert("Phone is turned on");
+        } else {
+            alert("Phone is turned off");
+        }
+    }
+
+    function sendMessage() {
+        let content = document.getElementById("composeArea").value;
+        nokia.composeMessage(content);
+        nokia.sentMessage(iphone, content);
+        document.getElementById("composeArea").value = "";
+    }
+
+    function seeReceived() {
+        let messages = iphone.seeReceivedMessage();
+        alert("Received messages: " + messages.join(", "));
+    }
+
+    function seeSent() {
+        let messages = nokia.seeSentMessage();
+        alert("Sent messages: " + messages.join(", "));
+    }
+</script>
