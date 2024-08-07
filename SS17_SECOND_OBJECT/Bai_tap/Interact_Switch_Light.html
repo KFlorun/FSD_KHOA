@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button onclick="switchOnOff()" style="width: 100px; height: 100px">SWITCH ON / OFF</button>
+    <button onclick="turnOnOff()" style="width: 100px; height: 100px">Turn On / Off</button>
+    <p>Electric lamp status: <span id="lamp-status">Off</span></p>
+
+</div>
+</body>
+</html>
+<script>
+    class ElectricLamp {
+        constructor() {
+            this.isOn = false;
+        }
+
+        turnOnOff() {
+            this.isOn = !this.isOn;
+            if (this.isOn) {
+                document.getElementById("lamp-status").innerHTML = 'On';
+            } else {
+                document.getElementById("lamp-status").innerHTML = 'Off';
+            }
+        }
+    }
+
+    class SwitchButton {
+        constructor() {
+            this.status = false;
+            this.lamp = null;
+        }
+
+        connectToLamp(lamp) {
+            return this.lamp = lamp;
+        }
+
+        SwitchOnOff() {
+            this.status = !this.status;
+            if (this.status) {
+                alert("Switch is on");
+                this.connectToLamp();
+            } else {
+                alert("Switch is off");
+            }
+        }
+    }
+
+    const newSwitch = new SwitchButton();
+    const newLamp = new ElectricLamp();
+
+    function switchOnOff() {
+        newSwitch.SwitchOnOff();
+    }
+
+    function turnOnOff() {
+        if (newSwitch.status && newSwitch.connectToLamp(true)) {
+            newLamp.turnOnOff();
+        } else {
+            alert("Lamp is not connected");
+        }
+    }
+</script>

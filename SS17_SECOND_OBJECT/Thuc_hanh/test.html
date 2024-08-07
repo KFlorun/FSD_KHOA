@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikachu Movement</title>
+    <style>
+        #init {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="init"></div>
+
+<script>
+    class Pikachu {
+        constructor() {
+            this.image = document.createElement('img');
+            this.image.src = 'https://s.net.vn/GpcR';
+            this.image.style.position = 'absolute';
+            this.image.style.left = '200px';
+            this.image.style.top = '300px';
+        }
+
+        init() {
+            document.getElementById("init").appendChild(this.image);
+        }
+
+        moveRight() {
+            this.image.style.left = parseInt(this.image.style.left) + 10 + 'px';
+        }
+
+        moveLeft() {
+            this.image.style.left = parseInt(this.image.style.left) - 10 + 'px';
+        }
+
+        moveTop() {
+            this.image.style.top = parseInt(this.image.style.top) - 10 + 'px';
+        }
+
+        moveBottom() {
+            this.image.style.top = parseInt(this.image.style.top) + 10 + 'px';
+        }
+
+        moveSelection(evt) {
+            switch (evt.key) {
+                case 'ArrowLeft':
+                    this.moveLeft();
+                    break;
+                case 'ArrowUp':
+                    this.moveTop();
+                    break;
+                case 'ArrowRight':
+                    this.moveRight();
+                    break;
+                case 'ArrowDown':
+                    this.moveBottom();
+                    break;
+            }
+        }
+    }
+
+    const pikachu = new Pikachu();
+
+    window.onload = () => {
+        pikachu.init();
+        window.addEventListener('keydown', (evt) => pikachu.moveSelection(evt));
+    };
+</script>
+</body>
+</html>

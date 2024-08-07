@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="init"></div>
+</body>
+</html>
+<script>
+    class Pikachu {
+        constructor() {
+            this.image = document.createElement('img')
+            this.image.src = 'https://s.net.vn/GpcR';
+            this.image.style.position = 'absolute';
+            this.image.style.left = '300px';
+            this.image.style.top = '300px';
+        }
+        init() {
+            document.getElementById("init").appendChild(this.image)
+            this.image.style.left = '300px';
+            this.image.style.top = '300px';
+        }
+        moveRight() {
+            this.image.style.left = parseInt(this.image.style.left) + 10 + 'px';
+        }
+        moveLeft() {
+            this.image.style.left = parseInt(this.image.style.left) - 10 + 'px';
+        }
+        moveTop() {
+            this.image.style.top = parseInt(this.image.style.top) - 10 + 'px';
+        }
+        moveBottom() {
+            this.image.style.top = parseInt(this.image.style.top) + 10 + 'px';
+        }
+        moveSelection(evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    this.moveLeft();
+                    break
+                case 38:
+                    this.moveTop();
+                    break
+                case 39:
+                    this.moveRight();
+                    break
+                case 40:
+                    this.moveBottom();
+                    break
+            }
+        }
+    }
+    const pikachu = new Pikachu();
+    window.onload = () => {
+        pikachu.init();
+        window.addEventListener('keydown', function (evt) {
+            pikachu.moveSelection(evt);
+        });
+    }
+</script>

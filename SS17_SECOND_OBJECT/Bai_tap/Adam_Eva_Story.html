@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4>Adam</h4>
+Weight: <span id="Adam-Weight">0</span>
+<div>
+    <button onclick="eatApple('Adam')">Eat Apple</button>
+    <button onclick="checkApple('Adam')">Check Apple</button>
+    <button onclick="saySth('Adam')">Say Something</button>
+</div>
+<h4>Eva</h4>
+Weight: <span id="Eva-Weight">0</span>
+<div>
+    <button onclick="eatApple('Eva')">Eat Apple</button>
+    <button onclick="checkApple('Eva')">Check Apple</button>
+    <button onclick="saySth('Eva')">Say Something</button>
+</div>
+<p>Apple Weight: <span id="Apple-Weight">0</span></p>
+</body>
+</html>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10
+        }
+
+        decreaseWeight() {
+            if (this.weight > 0) {
+                this.weight--
+            }
+        }
+
+        isEmpty() {
+            if (this.weight !== 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        getWeight() {
+            return this.weight
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name
+            this.gender = gender
+            this.weight = weight
+        }
+
+        checkApple(Apple) {
+            return Apple.getWeight()
+        }
+
+        eatApple(Apple) {
+            if (Apple.isEmpty()) {
+                Apple.decreaseWeight()
+                this.weight++
+            } else {
+                alert(this.name + " say: There are no apples left to eat")
+            }
+        }
+
+        getName() {
+            return this.name
+        }
+
+        setName(name) {
+            this.name = name
+        }
+
+        getWeight() {
+            return this.weight
+        }
+
+        setWeight(weight) {
+            this.weight = weight
+        }
+
+        saySth() {
+            return "Hello, I'm " + this.name;
+        }
+    }
+
+    const Adam = new Human('Adam', true, 70)
+    const Eva = new Human('Eva', false, 55)
+    const apple = new Apple()
+
+    function updateWeight() {
+        document.getElementById("Adam-Weight").innerHTML = Adam.weight;
+        document.getElementById("Eva-Weight").innerHTML = Eva.weight;
+        document.getElementById("Apple-Weight").innerHTML = apple.weight;
+    }
+
+    function eatApple(typeHuman) {
+        if (typeHuman === 'Adam') {
+            Adam.eatApple(apple)
+        } else if (typeHuman === 'Eva') {
+            Eva.eatApple(apple)
+        }
+        updateWeight()
+    }
+
+    function checkApple(typeHuman) {
+        if (typeHuman === 'Adam') {
+            alert(Adam.checkApple(apple))
+        } else if (typeHuman === 'Eva') {
+            alert(Eva.checkApple(apple))
+        }
+    }
+
+    function saySth(typeHuman) {
+        if (typeHuman === 'Adam') {
+            alert(Adam.saySth())
+        } else if (typeHuman === 'Eva') {
+            alert(Eva.saySth())
+        }
+    }
+
+    updateWeight();
+</script>
