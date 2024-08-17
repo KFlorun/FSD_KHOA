@@ -482,7 +482,7 @@ html {
     padding: 2px;
 }
 
-#cart {
+/*#cart {
     position: fixed;
     top: 0;
     right: 0;
@@ -501,7 +501,7 @@ html {
 
 .cart-visible {
     transform: translateX(0);
-}
+}*/
 .background-book-footer {
     background: url("https://s.net.vn/E9jj");
 }

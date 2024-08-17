@@ -50,8 +50,7 @@
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <button class="btn btn-outline-warning" onclick="payBill()"><i class='bx bx-shopping-bag'></i><span
-                id="numberCart">       0</span></button>
+        <button class="btn btn-outline-warning" onclick="payBill()"><i class='bx bx-shopping-bag'></i></button>
     </header>
 </div>
 
@@ -186,7 +185,7 @@
                     <div class="input"><span>Leaving: </span><input type="date" id="leavingTour"></div>
                 </div>
                 <a href="#cart">
-                    <button onclick="addTour()" class="btn btn-dark">Submit</button>
+                    <button onclick="packageInstance.getForm()" class="btn btn-dark">Submit</button>
                 </a>
             </div>
         </div>
@@ -251,7 +250,6 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-outline-success">Submit</button>
     </div>
     <div class="container my-4">
         <h2 class="mb-4">Your Cart</h2>
@@ -262,7 +260,6 @@
                     <th>Name</th>
                     <th>Price (VND)</th>
                     <th>Color</th>
-                    <th>Size</th>
                     <th colspan="3">Total Price:  <span id="total-price-cart">0</span>   VND</th>
                 </tr>
                 </thead>
@@ -270,10 +267,10 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-outline-success">Submit</button>
+        <button onclick="submit()" id="" class="btn btn-outline-success">Submit</button>
     </div>
 </div>
 
 </body>
 </html>
-<script src="main1.js"></script>
+<script src="main.js"></script>
